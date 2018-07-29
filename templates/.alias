@@ -39,4 +39,4 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
 # Node and NPM Alias
 alias nis='npm install --save'
-alias nid='npm install --save-dev
+alias nid='npm install --save-dev'
