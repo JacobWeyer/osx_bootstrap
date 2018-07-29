@@ -23,13 +23,13 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
 ## Colorize the ls output ##
-alias ls='ls --color=auto'
+alias ls='ls -G'
 
 ## Use a long listing format ##
 alias ll='ls -la'
 
 ## Show hidden files ##
-alias l.='ls -d .* --color=auto'
+alias l.='ls -d .*'
 
 ## Untar ##
 alias tgz='tar -xvfz'
