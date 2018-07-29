@@ -1,0 +1,99 @@
+#!/bin/bash
+
+PROJECTDIR=$(pwd)
+
+source ./bin/lib/methods
+
+set -e
+
+if [ ! -d "$HOME/.bin/" ]; then
+  mkdir "$HOME/.bin"
+fi
+
+# Before relying on Homebrew, check that packages can be compiled
+if ! type_exists 'gcc'; then
+    e_error "The XCode Command Line Tools must be installed first."
+    xcode-select --install
+    exit 1
+fi
+
+if ! command -v brew >/dev/null; then
+  fancy_echo "Installing Homebrew ..."
+    curl -fsS \
+      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+
+    # shellcheck disable=SC2016
+    append_to_file "$shell_file" 'export PATH="/usr/local/bin:$PATH"'
+else
+  fancy_echo "Homebrew already installed. Skipping ..."
+fi
+
+# Remove brew-cask since it is now installed as part of brew tap caskroom/cask.
+# See https://github.com/caskroom/homebrew-cask/releases/tag/v0.60.0
+if brew_is_installed 'brew-cask'; then
+  brew uninstall --force 'brew-cask'
+fi
+
+if tap_is_installed 'caskroom/versions'; then
+  brew untap caskroom/versions
+fi
+
+fancy_echo "Updating Homebrew ..."
+cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update
+
+# Install and sign into the mac app store
+if ! brew_is_installed 'mas'; then
+  brew install mas
+fi
+
+mas signin jacobweyer@gmail.com &&
+
+fancy_echo "Verifying the Homebrew installation..."
+if brew doctor; then
+  fancy_echo "Your Homebrew installation is good to go."
+else
+  fancy_echo "Your Homebrew installation reported some errors or warnings."
+  echo "Review the Homebrew messages to see if any action is needed."
+fi
+
+fancy_echo "Installing formulas and casks from the Brewfile ..."
+
+brew install gnu-sed --with-default-names
+brew install gnu-tar --with-default-names
+brew install gnu-indent --with-default-names
+brew install gnu-which --with-default-names
+
+cd $PROJECTDIR;
+
+if brew bundle; then
+  fancy_echo "All formulas and casks were installed successfully."
+else
+  fancy_echo "Some formulas or casks failed to install."
+  echo "This is usually due to one of the Mac apps being already installed,"
+  echo "in which case, you can ignore these errors."
+fi
+
+# Set up node
+sudo n lts
+
+# Add gitconfig
+if [ ! -f "$HOME/.gitconfig" ]; then
+  cp ./.gitconfig $HOME/.gitconfig
+else
+  fancy_echo "It looks like your .gitconfig already exists"
+fi
+
+if [ ! -f "$HOME/.gitignore" ]; then
+  cp ./.gitignore $HOME/.gitignore
+else
+  fancy_echo "It looks like your global .gitignore already exists"
+fi
+
+if app_is_installed 'GitHub'; then
+  fancy_echo "It looks like you've already configured your GitHub SSH keys."
+  fancy_echo "If not, you can do it by signing in to the GitHub app on your Mac."
+elif [ ! -f "$HOME/.ssh/github_rsa.pub" ]; then
+  open ~/Applications/GitHub\ Desktop.app
+fi
+
+fancy_echo 'All done!'
