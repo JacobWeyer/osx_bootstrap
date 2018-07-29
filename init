@@ -6,6 +6,12 @@ source ./bin/lib/methods
 
 set -e
 
+if [ ! -f "$HOME/.bash_profile" ]; then
+  touch .bash_profile
+else
+  echo ".bash_profile already exists"
+fi
+
 if [ ! -d "$HOME/.bin/" ]; then
   mkdir "$HOME/.bin"
 fi
@@ -41,7 +47,7 @@ fi
 fancy_echo "Updating Homebrew ..."
 cd "$(brew --repo)" && git fetch && git reset --hard origin/master && brew update
 
-# Install and sign into the mac app store
+# Install and sign into the app store
 if ! brew_is_installed 'mas'; then
   brew install mas
 fi
@@ -76,17 +82,40 @@ fi
 # Set up node
 sudo n lts
 
+fancy_echo "Install global NPM"
+sudo npm install -g chai eslint mocha nodemon
+
 # Add gitconfig
 if [ ! -f "$HOME/.gitconfig" ]; then
-  cp ./.gitconfig $HOME/.gitconfig
+  fancy_echo "Added .gitconfig"
+  cp ./templates/.gitconfig $HOME/.gitconfig
 else
   fancy_echo "It looks like your .gitconfig already exists"
 fi
 
 if [ ! -f "$HOME/.gitignore" ]; then
+  fancy_echo "Added .gitignore"
   cp ./.gitignore $HOME/.gitignore
 else
   fancy_echo "It looks like your global .gitignore already exists"
+fi
+
+if [ ! -f "$HOME/.zshrc" ]; then
+  fancy_echo "Install oh-my-zsh"
+  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+  fancy_echo "Adding .zshrc"
+  wget https://raw.githubusercontent.com/dracula/zsh/master/dracula.zsh-theme -P ~/.oh-my-zsh/themes/
+  rm $HOME/.zshrc
+  cp ./templates/.zshrc $HOME/.zshrc
+  chsh -s /bin/zsh
+else
+  fancy_echo ".oh-my-zsh already exists"
+fi
+
+if [ ! -f "$HOME/.alias" ]; then
+  echo 'Create .alias and source it in .bash_profile'
+  cp ./templates/.alias $HOME/.alias
+  echo 'source ~/.alias' >> ~/.bash_profile
 fi
 
 if app_is_installed 'GitHub'; then

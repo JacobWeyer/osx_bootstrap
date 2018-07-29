@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# Utils
+alias wget='wget -c'
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+## get rid of command not found ##
+alias cd..='cd ..'
+
+## Override top with htop ##
+alias top='htop'
+
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+## Colorize the ls output ##
+alias ls='ls --color=auto'
+
+## Use a long listing format ##
+alias ll='ls -la'
+
+## Show hidden files ##
+alias l.='ls -d .* --color=auto'
+
+## Untar ##
+alias tgz='tar -xvfz'
+
+# Homebrew Aliases
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+
+# Node and NPM Alias
+alias nis='npm install --save'
+alias nid='npm install --save-dev
