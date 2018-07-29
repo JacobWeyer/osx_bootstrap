@@ -40,3 +40,13 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 # Node and NPM Alias
 alias nis='npm install --save'
 alias nid='npm install --save-dev'
+
+# Git Shorthand
+alias gs='git status'
+alias ga='git add'
+alias gm='git commit -m'
+alias gam='git commit -am'
+alias gcb='git checkout -b'
+alias gb='git branch'
+alias gpush='git push'
+alias gpull='git pull'
