@@ -115,7 +115,6 @@ fi
 if [ ! -f "$HOME/.alias" ]; then
   echo 'Create .alias and source it in .bash_profile'
   cp ./templates/.alias $HOME/.alias
-  echo 'source ~/.alias' >> ~/.bash_profile
 fi
 
 

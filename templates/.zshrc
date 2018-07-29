@@ -17,3 +17,4 @@ plugins=(
     web-search
 )
 source $ZSH/oh-my-zsh.sh
+source $HOME/.alias
