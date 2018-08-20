@@ -42,7 +42,6 @@ cask "flux"
 cask "github"
 cask "google-chrome"
 cask "java"
-cask "jetbrains-toolbox"
 cask "iterm2"
 cask "microsoft-office"
 cask "postman"
@@ -52,6 +51,16 @@ cask "spectacle"
 cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
+
+## Jetbrains
+cask "jetbrains-toolbox"
+cask "datagrip"
+cask "goland"
+cask "intellij-idea"
+cash "phpstorm"
+cask "pycharm"
+cask "rubymine"
+cask "webstorm"
 
 ## Mac App Store Apps
 mas "BetterSnapTool", id: 417375580
