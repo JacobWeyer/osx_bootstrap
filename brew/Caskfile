@@ -1,0 +1,46 @@
+cask_args appdir: '/Applications'
+
+# Essential Mac applications
+tap "caskroom/cask"
+tap "caskroom/versions"
+
+cask "adobe-creative-cloud"
+cask "alfred"
+cask "appcleaner"
+cask "android-sdk"
+cask "android-studio"
+cask "androidtool"
+cask "battle-net"
+cask "codekit"
+cask "docker"
+cask "dropbox"
+cask "flux"
+cask "genymotion"
+cask "github"
+cask "google-chrome"
+cask "java"
+cask "iterm2"
+cask "microsoft-office"
+cask "postman"
+cask "slack"
+cask "skype"
+cask "sequel-pro"
+cask "spotify"
+cask "visual-studio-code"
+cask "vlc"
+
+## Random Programming
+
+
+## Jetbrains/Editors
+cask "jetbrains-toolbox"
+cask "appcode"
+cask "intellij-idea"
+cask "phpstorm"
+cask "webstorm"
+cask "pycharm"
+cask "clion"
+cask "goland"
+cask "datagrip"
+cask "rubymine"
+cask "visual-studio-code"

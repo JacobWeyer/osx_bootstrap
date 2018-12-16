@@ -27,7 +27,6 @@ if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
     curl -fsS \
       'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
-
     # shellcheck disable=SC2016
     append_to_file "$shell_file" 'export PATH="/usr/local/bin:$PATH"'
 else
@@ -79,11 +78,9 @@ else
   echo "in which case, you can ignore these errors."
 fi
 
-# Set up node
-sudo n lts
-
-fancy_echo "Install global NPM"
-sudo npm install -g chai eslint mocha nodemon
+echo 'Create .alias and source it in .bash_profile'
+mkdir -p $HOME/.alias
+cp -r ./alias $HOME/.alias
 
 # Add gitconfig
 if [ ! -f "$HOME/.gitconfig" ]; then
@@ -112,22 +109,11 @@ else
   fancy_echo ".oh-my-zsh already exists"
 fi
 
-if [ ! -f "$HOME/.alias" ]; then
-  echo 'Create .alias and source it in .bash_profile'
-  cp ./templates/.alias $HOME/.alias
-fi
-
-
 if [ ! -f "$HOME/.editorconfig" ]; then
   echo 'Create .editorconfig'
   cp ./templates/.editorconfig $HOME/.editorconfig
 fi
 
-if app_is_installed 'GitHub'; then
-  fancy_echo "It looks like you've already configured your GitHub SSH keys."
-  fancy_echo "If not, you can do it by signing in to the GitHub app on your Mac."
-elif [ ! -f "$HOME/.ssh/github_rsa.pub" ]; then
-  open ~/Applications/GitHub\ Desktop.app
-fi
+
 
 fancy_echo 'All done!'

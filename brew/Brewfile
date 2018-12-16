@@ -1,0 +1,32 @@
+cask_args appdir: '/Applications'
+
+# Essential terminal utilities
+tap "homebrew/cask"
+tap "homebrew/services"
+
+brew "bash"
+brew "coreutils"
+brew "findutils"
+
+brew "awscli"
+brew "bash-completion"
+brew "dockutil"
+brew "openssl"
+brew "geoip"
+brew "git"
+brew "git-flow"
+brew "httpie"
+brew "packer"
+brew "tmux"
+brew "tmate"
+brew "curl", args: ["with-openssl"]
+brew "htop"
+brew "python"
+brew "python3"
+brew "n"
+brew "tree"
+brew "watch"
+brew "wget"
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
