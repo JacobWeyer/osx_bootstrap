@@ -45,7 +45,7 @@ brew install gnu-indent --with-default-names
 brew install gnu-which --with-default-names
 
 # Install Applications
-if brew bundle ../brew/Brewfile; then
+if brew bundle install --file $PROJECT_DIR/brew/Brewfile; then
   fancy_echo "All formulas were installed successfully."
 else
   fancy_echo "Some formulas or casks failed to install."
@@ -53,7 +53,7 @@ else
   echo "in which case, you can ignore these errors."
 fi
 
-if brew bundle ../brew/Caskfile; then
+if brew bundle install --file $PROJECT_DIR/brew/Caskfile; then
   fancy_echo "All Casks were installed successfully."
 else
   fancy_echo "Some formulas or casks failed to install."
@@ -65,8 +65,8 @@ printf "\\nTo use the MAS CLI, enter your username. (Leave blank to skip: %s)\\n
 read -r -p "> " MAS_USERNAME
 
 if [ $MAS_USERNAME != "" ]; then
-    mas signin $MAS_USERNAME &&
-    if brew bundle ../brew/MASfile; then
+    mas signin $MAS_USERNAME
+    if brew bundle install --file $PROJECT_DIR/brew/MASfile; then
       fancy_echo "All Mac App Store Applications were installed successfully."
     else
       fancy_echo "Some formulas or casks failed to install."
