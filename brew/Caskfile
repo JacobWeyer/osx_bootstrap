@@ -4,43 +4,61 @@ cask_args appdir: '/Applications'
 tap "caskroom/cask"
 tap "caskroom/versions"
 
-cask "adobe-creative-cloud"
-cask "alfred"
-cask "appcleaner"
-cask "android-sdk"
-cask "android-studio"
-cask "androidtool"
-cask "battle-net"
-cask "codekit"
-cask "docker"
-cask "dropbox"
-cask "flux"
-cask "genymotion"
-cask "github"
-cask "google-chrome"
-cask "java"
-cask "iterm2"
-cask "microsoft-office"
-cask "postman"
+## Chat
 cask "slack"
 cask "skype"
+
+## Cloud Storage
+cask "dropbox"
+
+## Database
 cask "sequel-pro"
-cask "spotify"
-cask "visual-studio-code"
-cask "vlc"
 
-## Random Programming
-
-
-## Jetbrains/Editors
+## Editors
+cask "android-studio"
 cask "jetbrains-toolbox"
 cask "appcode"
+cask "clion"
+cask "datagrip"
+cask "goland"
 cask "intellij-idea"
 cask "phpstorm"
-cask "webstorm"
 cask "pycharm"
-cask "clion"
-cask "goland"
-cask "datagrip"
 cask "rubymine"
 cask "visual-studio-code"
+cask "webstorm"
+
+## Games
+cask "battle-net"
+
+## Internet Browsers
+cask "google-chrome"
+
+## MS Office
+cask "microsoft-office"
+
+## Music/Video
+cask "chromecast"
+cask "spotify"
+cask "vlc"
+
+## Photos/Editing
+cask "adobe-creative-cloud"
+
+## SDK
+cask "android-sdk"
+cask "androidtool"
+cask "java"
+
+## Programming Util
+cask "codekit"
+cask "docker"
+cask "github"
+cask "iterm2"
+cask "postman"
+
+## Utility
+cask "alfred"
+cask "appcleaner"
+cask "flux"
+

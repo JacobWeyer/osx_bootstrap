@@ -1,9 +1,4 @@
-cask_args appdir: '/Applications'
-
-# Essential terminal utilities
-tap "homebrew/cask"
-tap "homebrew/services"
-
+## Homebrew Utilities
 brew "bash"
 brew "coreutils"
 brew "findutils"
@@ -11,7 +6,6 @@ brew "findutils"
 brew "awscli"
 brew "bash-completion"
 brew "dockutil"
-brew "openssl"
 brew "geoip"
 brew "git"
 brew "git-flow"
@@ -24,6 +18,7 @@ brew "htop"
 brew "python"
 brew "python3"
 brew "n"
+brew "openssl"
 brew "tree"
 brew "watch"
 brew "wget"

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Git Shorthand
 alias gs='git status'
 alias ga='git add'
