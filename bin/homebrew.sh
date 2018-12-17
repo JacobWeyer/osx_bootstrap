@@ -44,9 +44,7 @@ brew install gnu-tar --with-default-names
 brew install gnu-indent --with-default-names
 brew install gnu-which --with-default-names
 
-## Install Applications
-brew bundle
-
+# Install Applications
 if brew bundle ../brew/Brewfile; then
   fancy_echo "All formulas were installed successfully."
 else
@@ -63,13 +61,11 @@ else
   echo "in which case, you can ignore these errors."
 fi
 
-
 printf "\\nTo use the MAS CLI, enter your username. (Leave blank to skip: %s)\\n"
 read -r -p "> " MAS_USERNAME
 
-
-if MAS_USERNAME != ""; then
-    mas signin MAS_USERNAME &&
+if [ $MAS_USERNAME != "" ]; then
+    mas signin $MAS_USERNAME &&
     if brew bundle ../brew/MASfile; then
       fancy_echo "All Mac App Store Applications were installed successfully."
     else
