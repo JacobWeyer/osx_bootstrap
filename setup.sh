@@ -82,8 +82,6 @@ fi
 
 if [ ! -f "$HOME/.bash_profile" ]; then
   touch .bash_profile
-else
-  echo ".bash_profile already exists"
 fi
 
 if [ ! -d "$HOME/.bin/" ]; then
@@ -105,6 +103,7 @@ fi
 echo  "Fetching osx bootstrap repo..."
 cd ~/Projects
 curl -O -L https://github.com/JacobWeyer/osx_bootstrap/archive/updates.zip
+ls -la
 unzip updates.zip
 rm -rf updates.zip
 cd osx_bootstrap-updates
