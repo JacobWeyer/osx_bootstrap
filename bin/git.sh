@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 echo "Creating an SSH key for you..."
-ssh-keygen -t rsa -f jacob_github
+ssh-keygen -t rsa -f github -b 4096 -C "jacobweyer@gmail.com"
+ssh-add -K ~/.ssh/github
 
-echo "Please add this public key to Github \n"
+pbcopy < ~/.ssh/github.pub
+
+echo "The Key has been copied to your clipboard. Please add this public key to Github \n"
 echo "https://github.com/account/ssh \n"
 read -p "Press [Enter] key after this..."
 
