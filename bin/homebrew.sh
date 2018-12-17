@@ -45,6 +45,9 @@ brew install gnu-indent --with-default-names
 brew install gnu-which --with-default-names
 
 # Install Applications
+ls -la
+ls
+
 if brew bundle install --file=./brew/Brewfile; then
   fancy_echo "All formulas were installed successfully."
 else
