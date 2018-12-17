@@ -1,6 +1,4 @@
-#!/bin/bash
-
-source ./bin/lib/methods.sh
+#!/usr/bin/env bash
 
 set -e
 
@@ -20,7 +18,7 @@ DEFAULT_TIME_ZONE="America/Kentucky/Louisville"
 ################################################################################
 
 if [ ! -d "$COMMANDLINE_TOOLS" ]; then
-  bootstrap_echo "Apple's command line developer tools must be installed before
+  echo "Apple's command line developer tools must be installed before
 running this script. To install them, just run 'xcode-select --install' from
 the terminal and then follow the prompts. Once the command line tools have been
 installed, you can try running this script again."
@@ -111,6 +109,8 @@ unzip updates.zip
 rm -rf updates.zip
 cd osx_bootstrap
 PROJECT_DIR=$(pwd)
+
+source ./bin/lib/methods.sh
 
 ################################################################################
 # Install Homebrew & Apps
