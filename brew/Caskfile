@@ -56,9 +56,10 @@ cask "docker"
 cask "github"
 cask "iterm2"
 cask "postman"
+cask "paw"
 
 ## Utility
 cask "alfred"
 cask "appcleaner"
 cask "flux"
-
+cask "spectacle"

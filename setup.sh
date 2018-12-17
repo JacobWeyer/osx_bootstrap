@@ -47,34 +47,34 @@ echo "*******                                                           *******"
 echo "*************************************************************************"
 echo
 
-printf "Before we get started, let's get some info about your setup.\\n"
-
-printf "\\nEnter a name for your Mac. (Leave blank for default: %s)\\n" "$DEFAULT_COMPUTER_NAME"
-read -r -p "> " COMPUTER_NAME
-export COMPUTER_NAME=${COMPUTER_NAME:-$DEFAULT_COMPUTER_NAME}
-
-printf "\\nEnter a host name for your Mac. (Leave blank for default: %s)\\n" "$DEFAULT_HOST_NAME"
-read -r -p "> " HOST_NAME
-export HOST_NAME=${HOST_NAME:-$DEFAULT_HOST_NAME}
-
-printf "\\nEnter your desired time zone.
-To view available options run \`sudo systemsetup -listtimezones\`
-(Leave blank for default: %s)\\n" "$DEFAULT_TIME_ZONE"
-read -r -p "> " TIME_ZONE
-export TIME_ZONE=${TIME_ZONE:-$DEFAULT_TIME_ZONE}
-
-printf "\\nLooks good. Here's what we've got.\\n"
-printf "Computer name:    ==> [%s]\\n" "$COMPUTER_NAME"
-printf "Host name:        ==> [%s]\\n" "$HOST_NAME"
-printf "Time zone:        ==> [%s]\\n" "$TIME_ZONE"
-
-echo
-read -p "Continue? (y/n) " -n 1 -r
-echo
-if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
-  echo "Exiting..."
-  exit 1
-fi
+#printf "Before we get started, let's get some info about your setup.\\n"
+#
+#printf "\\nEnter a name for your Mac. (Leave blank for default: %s)\\n" "$DEFAULT_COMPUTER_NAME"
+#read -r -p "> " COMPUTER_NAME
+#export COMPUTER_NAME=${COMPUTER_NAME:-$DEFAULT_COMPUTER_NAME}
+#
+#printf "\\nEnter a host name for your Mac. (Leave blank for default: %s)\\n" "$DEFAULT_HOST_NAME"
+#read -r -p "> " HOST_NAME
+#export HOST_NAME=${HOST_NAME:-$DEFAULT_HOST_NAME}
+#
+#printf "\\nEnter your desired time zone.
+#To view available options run \`sudo systemsetup -listtimezones\`
+#(Leave blank for default: %s)\\n" "$DEFAULT_TIME_ZONE"
+#read -r -p "> " TIME_ZONE
+#export TIME_ZONE=${TIME_ZONE:-$DEFAULT_TIME_ZONE}
+#
+#printf "\\nLooks good. Here's what we've got.\\n"
+#printf "Computer name:    ==> [%s]\\n" "$COMPUTER_NAME"
+#printf "Host name:        ==> [%s]\\n" "$HOST_NAME"
+#printf "Time zone:        ==> [%s]\\n" "$TIME_ZONE"
+#
+#echo
+#read -p "Continue? (y/n) " -n 1 -r
+#echo
+#if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
+#  echo "Exiting..."
+#  exit 1
+#fi
 
 ################################################################################
 # Creating Default Files/Directories
@@ -94,6 +94,11 @@ fi
 
 if [ ! -d "$HOME/OpenSource" ]; then
   mkdir -p "~/OpenSource"
+fi
+
+if [ ! -d "/usr/local/sbin" ]; then
+  sudo mkdir -p /usr/local/sbin
+  sudo chown -R $(whoami) /usr/local/sbin
 fi
 
 ################################################################################
