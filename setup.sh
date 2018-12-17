@@ -106,9 +106,10 @@ fi
 
 echo  "Fetching osx bootstrap repo..."
 cd ~/Projects/
-curl -O -L https://github.com/JacobWeyer/osx_bootstrap/archive/master.zip
-unzip master.zip
-rm -rf master.zip
+curl -O -L https://github.com/JacobWeyer/osx_bootstrap/archive/updates.zip
+unzip updates.zip
+rm -rf updates.zip
+cd osx_bootstrap
 PROJECT_DIR=$(pwd)
 
 ################################################################################
