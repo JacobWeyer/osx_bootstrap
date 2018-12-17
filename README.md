@@ -1,5 +1,10 @@
-# osx_bootstrap
+# OSX Setup Script
 
-Unzip the project and run `sh init`
+Run this script to start the installer
 
-If someone else is using this they should fix the gitconfig and the mac app store signin to be their emails
+```
+cd ~/Downloads
+curl -O https://github.com/JacobWeyer/osx_bootstrap/master/setup.sh
+chmod +x setup.sh
+./setup.sh
+```
