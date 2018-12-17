@@ -53,7 +53,7 @@ else
   echo "in which case, you can ignore these errors."
 fi
 
-if brew bundle install --file $PROJECT_DIR/brew/Caskfile; then
+if brew bundle install --file /brew/Caskfile; then
   fancy_echo "All Casks were installed successfully."
 else
   fancy_echo "Some formulas or casks failed to install."
