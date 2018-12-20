@@ -116,7 +116,7 @@ if ! command -v brew >/dev/null; then
       'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
 
     # shellcheck disable=SC2016
-    append_to_file "$shell_file" 'export PATH="/usr/local/bin:$PATH"'
+    append_to_file "$HOME/.bash_profile" 'export PATH="/usr/local/bin:$PATH"'
 else
   fancy_echo "Homebrew already installed. Skipping ..."
 fi
