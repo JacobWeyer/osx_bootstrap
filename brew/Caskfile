@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+cask_args appdir: '/Applications'
+
+# Essential Mac applications
+tap "caskroom/cask"
+tap "caskroom/versions"
+
+## Chat
+cask "skype"
+
+## Cloud Storage
+cask "dropbox"
+
+## Database
+cask "sequel-pro"
+
+## Editors
+cask "android-studio"
+cask "jetbrains-toolbox"
+cask "clion"
+cask "datagrip"
+cask "goland"
+cask "intellij-idea"
+cask "phpstorm"
+cask "pycharm"
+cask "rubymine"
+cask "visual-studio-code"
+cask "webstorm"
+
+## Games
+cask "battle-net"
+
+## Internet Browsers
+cask "google-chrome"
+
+## MS Office
+cask "microsoft-office"
+
+## Music/Video
+cask "mkchromecast"
+cask "spotify"
+cask "vlc"
+
+## Photos/Editing
+cask "adobe-creative-cloud"
+
+## SDK
+cask "android-sdk"
+cask "androidtool"
+cask "java"
+
+## Programming Util
+cask "codekit"
+cask "docker"
+cask "github"
+cask "iterm2"
+cask "postman"
+cask "paw"
+
+## Utility
+cask "alfred"
+cask "appcleaner"
+cask "flux"
+cask "spectacle"

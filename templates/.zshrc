@@ -17,4 +17,6 @@ plugins=(
     web-search
 )
 source $ZSH/oh-my-zsh.sh
-source $HOME/.alias
+source $HOME/.bash_profile
+source $HOME/.alias/bash.sh
+export PATH="/usr/local/sbin:$PATH"

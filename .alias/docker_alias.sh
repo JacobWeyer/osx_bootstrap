@@ -1,55 +1,6 @@
 #!/usr/bin/env bash
 
-# Utils
-alias wget='wget -c'
-
-## Colorize the grep command output for ease of use (good for log files)##
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-## get rid of command not found ##
-alias cd..='cd ..'
-
-## Override top with htop ##
-alias top='htop'
-
-## a quick way to get out of current directory ##
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
-
-## Colorize the ls output ##
-alias ls='ls -G'
-
-## Use a long listing format ##
-alias ll='ls -la'
-
-## Show hidden files ##
-alias l.='ls -d .*'
-
-## Untar ##
-alias tgz='tar -xvfz'
-
-# Homebrew Aliases
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-
-# Node and NPM Alias
-alias nis='npm install --save'
-alias nid='npm install --save-dev'
-
-# Git Shorthand
-alias gs='git status'
-alias ga='git add'
-alias gm='git commit -m'
-alias gam='git commit -am'
-alias gcb='git checkout -b'
-alias gb='git branch'
-alias gpush='git push'
-alias gpull='git pull'
+#!/usr/bin/env bash
 
 # ------------------------------------
 # Docker alias and function
@@ -91,7 +42,7 @@ alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 # Remove all images
 dri() { docker rmi $(docker images -q); }
 
-# Dockerfile build, e.g., $dbu tcnksm/test 
+# Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
 
 # Show all alias related docker
