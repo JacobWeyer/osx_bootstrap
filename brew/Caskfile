@@ -17,6 +17,7 @@ cask "sequel-pro"
 
 ## Editors
 cask "android-studio"
+cask "coda"
 cask "jetbrains-toolbox"
 cask "clion"
 cask "datagrip"
