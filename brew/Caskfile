@@ -16,8 +16,8 @@ cask "dropbox"
 cask "sequel-pro"
 
 ## Editors
-cask "android-studio"
-cask "coda"
+#cask "android-studio"
+#cask "coda"
 cask "jetbrains-toolbox"
 cask "clion"
 cask "datagrip"
@@ -30,7 +30,7 @@ cask "visual-studio-code"
 cask "webstorm"
 
 ## Games
-cask "battle-net"
+#cask "battle-net"
 
 ## Internet Browsers
 cask "google-chrome"
@@ -44,12 +44,12 @@ cask "spotify"
 cask "vlc"
 
 ## Photos/Editing
-cask "adobe-creative-cloud"
+#cask "adobe-creative-cloud"
 
 ## SDK
-cask "android-sdk"
-cask "androidtool"
-cask "java"
+#cask "android-sdk"
+#cask "androidtool"
+#cask "java"
 
 ## Programming Util
 cask "codekit"

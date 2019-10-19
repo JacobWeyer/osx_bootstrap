@@ -11,21 +11,13 @@ source ./.bin/lib/helpers.sh
 ################################################################################
 # VARIABLE DECLARATIONS IF NEEDED
 ################################################################################
-export COMMANDLINE_TOOLS="/Library/Developer/CommandLineTools"
 export CURRENT_DIR=$(pwd)
 
 ################################################################################
-# Check for presence of command line tools if macOS
+# Accept XCODE License
 ################################################################################
 
-if [ ! -d "$COMMANDLINE_TOOLS" ]; then
-  fancy_echo "Apple's command line developer tools must be installed before
-running this script. To install them, just run 'xcode-select --install' from
-the terminal and then follow the prompts. Once the command line tools have been
-installed, you can try running this script again."
-  xcode-select --install
-  exit 1
-fi
+sudo xcodebuild -license accept
 
 ################################################################################
 # AUTHENTICATE
@@ -60,11 +52,6 @@ read -r -p "> " GIT_USERNAME
 echo
 echo "Do you want the dock sorted based on dock_sort.sh? (y/n)"
 read -r -p "> " DOCK_SORT
-echo
-echo "If you'd like to run the MAS CLI tool and the Mac App Store Installer"
-echo "Then enter your username below. (Leave blank to skip)"
-echo "Enter your Apple ID: (Leave blank to skip)"
-read -r -p "> " MAS_USERNAME
 
 ################################################################################
 # Creating Default Files/Directories
@@ -179,20 +166,6 @@ else
   fancy_echo "in which case, you can ignore these errors."
 fi
 
-if [ $MAS_USERNAME != "" ]; then
-    fancy_echo "Attempting to sign into MAS. If you're already signed in then it should proceed"
-    mas signin $MAS_USERNAME &&
-    if brew bundle install --file=$PROJECT_DIR/brew/MASfile; then
-      fancy_echo "All Mac App Store Applications were installed successfully."
-    else
-      fancy_echo "Some formulas or casks failed to install."
-      echo "This is usually due to one of the Mac apps being already installed,"
-      echo "in which case, you can ignore these errors."
-    fi
-else
-    fancy_echo "Skipped MAS CLI Install"
-fi
-
 ################################################################################
 # INSTALL NODE AND COMMON GLOBAL PACKAGES
 ################################################################################
@@ -213,11 +186,19 @@ fi
 # INSTALL NODE AND COMMON GLOBAL PACKAGES
 ################################################################################
 
-#fancy_echo "Installing N, the Node Version Manager"
-#sudo n lts
-#
-#fancy_echo "Install global NPM Packages"
-#sudo npm install -g chai eslint mocha nodemon serverless
+fancy_echo "Installing N, the Node Version Manager"
+sudo n lts
+
+fancy_echo "Install global NPM Packages"
+sudo npm install -g chai eslint mocha nodemon serverless
+
+################################################################################
+# GOLANG
+################################################################################
+
+fancy_echo "Install GO Packages"
+go get golang.org/x/tools/cmd/godoc
+go get github.com/golang/lint/golint
 
 ################################################################################
 # Set Up Git & Generate Git SSH KEY
