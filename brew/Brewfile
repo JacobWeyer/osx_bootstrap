@@ -4,26 +4,53 @@ brew "bash"
 brew "coreutils"
 brew "findutils"
 
-brew "awscli"
-brew "bash-completion"
-brew "curl", args: ["with-openssl"]
-brew "dockutil"
-brew "geoip"
+# Programming Languages
 brew "go"
-brew "git"
-brew "git-flow"
-brew "httpie"
-brew "htop"
-brew "packer"
+brew "n"
 brew "python"
 brew "python3"
-brew "n"
+
+# Mac App Store
+brew "mas"
+
+# AWS
+brew "awscli"
+
+# Terraform
+brew "tfenv"
+
+# Git
+brew "git"
+brew "git-flow"
+
+# Kubernetes
+brew "kubectl"
+
+# Utils
+brew "bash-completion"
+brew "curl", args: ["with-openssl"]
+brew "geoip"
+brew "jq"
+brew "htop"
 brew "openssl"
-brew "tmux"
-brew "tmate"
+brew "packer"
+brew "speedtest-cli"
 brew "tree"
 brew "watch"
 brew "wget"
-brew "zsh"
+
+# QuickLook
+brew "qlcolorcode"
+brew "qlstephen"
+brew "qlmarkdown"
+brew "quicklook-json"
+brew "webpquicklook"
+brew "suspicious-package"
+brew "quicklookase"
+brew "qlvideo"
+brew "qlImageSize"
+
+# ZSH
+brew "romkatv/powerlevel10k/powerlevel10k"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"

@@ -8,6 +8,8 @@ tap "caskroom/versions"
 
 ## Chat
 cask "skype"
+cask "slack"
+cask "zoom"
 
 ## Cloud Storage
 cask "dropbox"
@@ -16,21 +18,11 @@ cask "dropbox"
 cask "sequel-pro"
 
 ## Editors
-#cask "android-studio"
-#cask "coda"
 cask "jetbrains-toolbox"
-cask "clion"
-cask "datagrip"
-cask "goland"
-cask "intellij-idea"
-cask "phpstorm"
-cask "pycharm"
-cask "rubymine"
-cask "visual-studio-code"
-cask "webstorm"
+cask "vscode"
 
-## Games
-#cask "battle-net"
+## Kubernetes
+cask "lens"
 
 ## Internet Browsers
 cask "google-chrome"
@@ -38,29 +30,21 @@ cask "google-chrome"
 ## MS Office
 cask "microsoft-office"
 
-## Music/Video
-cask "mkchromecast"
+## Media
 cask "spotify"
-cask "vlc"
-
-## Photos/Editing
-#cask "adobe-creative-cloud"
-
-## SDK
-#cask "android-sdk"
-#cask "androidtool"
-#cask "java"
+cask "kindle"
 
 ## Programming Util
 cask "codekit"
 cask "docker"
 cask "github"
+cask "loom"
 cask "iterm2"
 cask "postman"
 cask "paw"
 
 ## Utility
 cask "alfred"
-cask "appcleaner"
 cask "flux"
 cask "spectacle"
+

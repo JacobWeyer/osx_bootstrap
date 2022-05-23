@@ -1,16 +1,4 @@
 #!/usr/bin/env bash
 
 ## Mac App Store Apps
-mas "BetterSnapTool", id: 417375580
-mas "Helium", id: 1054607607
-mas "Kindle", id: 405399194
-mas "Microsoft Remote Desktop", id: 715768417
-mas "Paste JSON as Code • quicktype", id: 1330801220
-mas "Postico", id: 1031280567
-mas "Sip", id: 507257563
-mas "Slack", id: 803453959
-mas "SnippetsLab", id: 1006087419
-mas "Simplenote", id: 692867256
-mas "The Unarchiver", id: 425424353
-mas "Todoist", id: 585829637
-mas "Xcode", id: 497799835
+mas "Magnet", id: 441258766
