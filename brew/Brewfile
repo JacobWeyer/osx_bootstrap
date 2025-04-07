@@ -5,23 +5,19 @@ brew "coreutils"
 brew "findutils"
 
 # Programming Languages
-brew "go"
-brew "n"
-brew "python"
-brew "python3"
-
-# Mac App Store
-brew "mas"
 
 # AWS
 brew "awscli"
 
-# Terraform
+# Runtimes
+brew "goenv"
+brew "pyenv"
 brew "tfenv"
 
 # Git
 brew "git"
 brew "git-flow"
+brew "git-extras"
 
 # Kubernetes
 brew "kubectl"
