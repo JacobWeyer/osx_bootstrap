@@ -10,6 +10,7 @@ brew "findutils"
 brew "awscli"
 
 # Runtimes
+brew "nvm"
 brew "goenv"
 brew "pyenv"
 brew "tfenv"
