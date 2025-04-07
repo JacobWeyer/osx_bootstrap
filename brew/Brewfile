@@ -23,6 +23,9 @@ brew "gh"
 
 # Kubernetes
 brew "kubectl"
+brew "k9s"
+brew "helm"
+brew "helmfile"
 
 # Utils
 brew "asdf"
