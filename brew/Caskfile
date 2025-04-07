@@ -22,7 +22,7 @@ cask "jetbrains-toolbox"
 cask "vscode"
 
 ## Kubernetes
-cask "lens"
+cask "aptakube"
 
 ## Internet Browsers
 cask "google-chrome"
@@ -38,13 +38,8 @@ cask "kindle"
 cask "codekit"
 cask "docker"
 cask "github"
-cask "loom"
 cask "iterm2"
 cask "postman"
-cask "paw"
 
 ## Utility
 cask "alfred"
-cask "flux"
-cask "spectacle"
-
