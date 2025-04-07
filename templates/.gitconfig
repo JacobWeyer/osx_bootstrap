@@ -1,3 +1,8 @@
+[user]
+	name = Jacob Weyer
+	email = jacobweyer@gmail.com
+	username = jacobweyer
+
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -78,13 +83,20 @@
 			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
 		fi \
 	}; f"
+	
 [core]
 	editor = nano
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
+
 [gitflow "prefix"]
 	feature = feature-
 	release = release-
 	hotfix = hotfix-
 	support = support-
 	versiontag = v
+
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true

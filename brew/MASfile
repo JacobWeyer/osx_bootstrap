@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-## Mac App Store Apps
-mas "Magnet", id: 441258766
