@@ -19,11 +19,13 @@ brew "tfenv"
 brew "git"
 brew "git-flow"
 brew "git-extras"
+brew "gh"
 
 # Kubernetes
 brew "kubectl"
 
 # Utils
+brew "asdf"
 brew "bash-completion"
 brew "curl", args: ["with-openssl"]
 brew "geoip"
