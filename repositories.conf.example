@@ -1,0 +1,26 @@
+# GitHub Repositories Configuration
+# Copy this file to repositories.conf and customize for your needs
+# The .example file is tracked in git, but repositories.conf should be in .gitignore
+
+# GitHub organization to clone repositories from
+# Leave empty to skip repository cloning
+GITHUB_ORG=""
+
+# Git user configuration (used when cloning repositories)
+GIT_USER_NAME="Your Name"
+GIT_USER_EMAIL="your.email@example.com"
+GIT_USER_USERNAME="yourusername"
+
+# Target directory where repositories will be cloned
+# Default: $HOME/Projects if not set
+REPOSITORIES_DIR=""
+
+# Cutoff date for filtering repositories (ISO 8601 format)
+# Only repositories updated after this date will be cloned
+# Format: YYYY-MM-DDTHH:MM:SSZ
+CUTOFF_DATE="2024-01-01T00:00:00Z"
+
+# SSH key path for GitHub authentication
+# Default: ~/.ssh/github
+SSH_KEY_PATH="~/.ssh/github"
+

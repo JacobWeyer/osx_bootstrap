@@ -33,6 +33,64 @@ export BOOTSTRAP_DIR="$SCRIPT_DIR"
 # Source color functions
 source "$SCRIPT_DIR/lib/colors.sh"
 
+# Load repositories.conf early if it exists (for git user configuration)
+CONFIG_FILE=""
+if [ -f "$SCRIPT_DIR/config/repositories.conf" ]; then
+  CONFIG_FILE="$SCRIPT_DIR/config/repositories.conf"
+elif [ -f "$SCRIPT_DIR/repositories.conf" ]; then
+  CONFIG_FILE="$SCRIPT_DIR/repositories.conf"
+fi
+
+if [ -n "$CONFIG_FILE" ]; then
+  # Source the config file to make git user variables available
+  set +e
+  source "$CONFIG_FILE" 2>/dev/null
+  set -e
+  # Map repositories.conf variables to git-input.sh variables if not already set
+  if [ -n "$GIT_USER_NAME" ] && [ -z "$GIT_USERNAME" ]; then
+    export GIT_USERNAME="$GIT_USER_NAME"
+  fi
+  if [ -n "$GIT_USER_EMAIL" ] && [ -z "$GIT_EMAIL" ]; then
+    export GIT_EMAIL="$GIT_USER_EMAIL"
+  fi
+  if [ -n "$GIT_USER_USERNAME" ]; then
+    export GIT_USER_USERNAME
+  fi
+fi
+
+# Copy config dotfiles to home directory
+print_header "Copying Config Dotfiles"
+CONFIG_DIR="$SCRIPT_DIR/config"
+if [ -d "$CONFIG_DIR" ]; then
+  print_step "Copying config dotfiles to home directory..."
+  
+  # Copy .editorconfig
+  if [ -f "$CONFIG_DIR/.editorconfig" ]; then
+    if [ -f "$HOME/.editorconfig" ] && [ ! -L "$HOME/.editorconfig" ]; then
+      print_warning ".editorconfig already exists in home directory. Skipping."
+    else
+      cp "$CONFIG_DIR/.editorconfig" "$HOME/.editorconfig"
+      print_success "Copied .editorconfig to ~/.editorconfig"
+    fi
+  fi
+  
+  # Copy .gitconfig (will be symlinked later by dotfiles.sh, but copy first for early availability)
+  if [ -f "$CONFIG_DIR/.gitconfig" ]; then
+    if [ -f "$HOME/.gitconfig" ] && [ ! -L "$HOME/.gitconfig" ]; then
+      print_warning ".gitconfig already exists in home directory. Skipping."
+    else
+      cp "$CONFIG_DIR/.gitconfig" "$HOME/.gitconfig"
+      print_success "Copied .gitconfig to ~/.gitconfig"
+    fi
+  fi
+  
+  print_success "Config dotfiles copied"
+else
+  print_warning "Config directory not found at $CONFIG_DIR"
+fi
+
+echo ""
+
 # If repositories-only flag is set, skip to repositories
 if [ "$REPOSITORIES_ONLY" = true ]; then
   source "$SCRIPT_DIR/setup/repositories.sh"
