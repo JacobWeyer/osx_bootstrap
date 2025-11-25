@@ -1,0 +1,18 @@
+# Bash-specific configuration
+
+# History configuration
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# Bash options
+shopt -s checkwinsize
+shopt -s globstar
+shopt -s extglob
+
+# Bash completion
+if [ -f "$(brew --prefix)/etc/bash_completion" ]; then
+  source "$(brew --prefix)/etc/bash_completion"
+fi
+

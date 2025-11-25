@@ -1,0 +1,15 @@
+# PATH configuration
+
+# Add ~/.bin to PATH
+export PATH="$HOME/.bin:$PATH"
+
+# Add Homebrew to PATH (if not already there)
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -f "/usr/local/bin/brew" ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Add local bin directories
+export PATH="$HOME/.local/bin:$PATH"
+

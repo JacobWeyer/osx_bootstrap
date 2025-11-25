@@ -1,0 +1,127 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](color_blue)\
+$directory\
+[](fg:color_blue bg:color_aqua)\
+$git_branch\
+[](fg:color_aqua)\
+$character"""
+
+right_format = """
+$aws\
+$kubernetes\
+$terraform\
+$rust\
+$golang\
+$nodejs\
+$php\
+$python\
+$time
+"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[directory]
+style = "fg:color_fg0 bg:color_blue"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+
+[git_status]
+style = "bg:color_aqua"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_yellow"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_yellow)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_orange"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_orange)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_purple"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_purple)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_green"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_green)]($style)'
+
+[aws]
+symbol = "🅰 "
+style = "bg:color_orange"
+format = '[$symbol($profile)( | $region )]($style)'
+disabled = false
+
+[aws.profile_aliases]
+"purchaser/AdministratorAccess" = "Root"
+"PurchaserDevelopment/AdministratorAccess" = "Dev"
+"PurchaserManagement/AdministratorAccess" = "Mgmt"
+"PurchaserProduction/AdministratorAccess" = "Prod"
+"PurchaserSecurity/AdminAccess" = "Security"
+"PurchaserStaging/AdministratorAccess" = "Stage"
+
+[aws.region_aliases]
+us-east-1 = "use1"
+us-east-2 = "use2"
+us-west-1 = "usw1"
+us-west-2 = "usw2"
+
+[kubernetes]
+symbol = "☸ "
+style = "bg:color_blue"
+format = '[$symbol($context on $namespace )]($style)'
+disabled = false
+detect_files = ['k8s']
+detect_folders = ['.kube']
+detect_extensions = []
+
+[terraform]
+symbol = "💠 "
+style = "bg:color_purple"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_purple)]($style)'
+disabled = false
+
+[time]
+disabled = false
+time_format = "%I:%M"
+format = '[[ $time ](fg:color_fg0)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = true
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'

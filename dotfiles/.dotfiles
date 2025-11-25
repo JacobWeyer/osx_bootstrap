@@ -1,0 +1,36 @@
+#!/bin/bash
+
+################################################################################
+# Central Dotfiles Configuration
+# 
+# This file is the central entry point for all dotfile configurations.
+# Source this file from your .zshrc, .bashrc, or .profile
+################################################################################
+
+# Get the directory where this file is located
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source shell-specific configurations
+if [ -n "$BASH_VERSION" ]; then
+  # Bash configuration
+  [ -f "$DOTFILES_DIR/bashrc" ] && source "$DOTFILES_DIR/bashrc"
+fi
+
+# Source common configurations (available in both shells)
+[ -f "$DOTFILES_DIR/common.sh" ] && source "$DOTFILES_DIR/common.sh"
+
+# Source exports (environment variables)
+[ -f "$DOTFILES_DIR/exports.sh" ] && source "$DOTFILES_DIR/exports.sh"
+
+# Source path configuration
+[ -f "$DOTFILES_DIR/path" ] && source "$DOTFILES_DIR/path"
+
+# Source service-specific configurations
+[ -f "$DOTFILES_DIR/apps.sh" ] && source "$DOTFILES_DIR/apps.sh"
+[ -f "$DOTFILES_DIR/shell.sh" ] && source "$DOTFILES_DIR/shell.sh"
+[ -f "$DOTFILES_DIR/git.sh" ] && source "$DOTFILES_DIR/git.sh"
+[ -f "$DOTFILES_DIR/docker.sh" ] && source "$DOTFILES_DIR/docker.sh"
+[ -f "$DOTFILES_DIR/kubernetes.sh" ] && source "$DOTFILES_DIR/kubernetes.sh"
+[ -f "$DOTFILES_DIR/nodejs.sh" ] && source "$DOTFILES_DIR/nodejs.sh"
+[ -f "$DOTFILES_DIR/python.sh" ] && source "$DOTFILES_DIR/python.sh"
+[ -f "$DOTFILES_DIR/go.sh" ] && source "$DOTFILES_DIR/go.sh"
