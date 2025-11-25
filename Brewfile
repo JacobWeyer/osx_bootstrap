@@ -33,6 +33,7 @@ brew "nvm"
 brew "goenv"
 brew "pyenv"
 brew "tfenv"
+brew "terragrunt"
 brew "uv"
 
 # Git
